@@ -4,42 +4,9 @@
 
 <head>
 	<title>Obfuscation Tool</title>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<script type="text/javascript">
-var observe;
-if (window.attachEvent) {
-    observe = function (element, event, handler) {
-        element.attachEvent('on'+event, handler);
-    };
-}
-else {
-    observe = function (element, event, handler) {
-        element.addEventListener(event, handler, false);
-    };
-}
-function fixTehTextArea () {
-    var text = document.getElementById('maintext');
-    function resize () {
-        text.style.height = 'auto';
-        text.style.height = text.scrollHeight+'px';
-    }
-    function delayedResize () {
-        window.setTimeout(resize, 0);
-    }
-    observe(text, 'change',  resize);
-    observe(text, 'cut',     delayedResize);
-    observe(text, 'paste',   delayedResize);
-    observe(text, 'drop',    delayedResize);
-    observe(text, 'keydown', delayedResize);
-
-    text.focus();
-    text.select();
-    resize();
-}
-</script>
 </head>
 
-<body onLoad="fixTehTextArea();">
+<body>
 	<div align="center">
 		<h1>Welcome to the obfuscator! Please enter your text below as well as a password.</h1>
 		<br />
