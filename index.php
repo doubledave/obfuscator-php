@@ -1,5 +1,7 @@
 <?php
 // I want this here
+
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -44,24 +46,74 @@ function fixTehTextArea () {
 
 <body onLoad="fixTehTextArea();">
 	<div align="center">
-		<p>Welcome to the obfuscator! Please enter your text below as well as a password.</p>
+		<h1>Welcome to the obfuscator! Please enter your text below as well as a password.</h1>
 		<br />
-                <p>debugging:<br/>
+                <p>
                 <?php
-                $key="123";
-                $encrypted = "Wfvg Wlvdnmo 87.";
-                echo "key: ".$key."<br/>";
-                echo "md5 of key: ".md5($key)."<br/>";
-                echo "encrypted: ".$encrypted."<br/>";
-                echo "decrypted: ".decrypt($encrypted,$key);
+$encrypted = "";
+$decrypted = "";
+$operation = "";
+$password = "";
+$invalid = FALSE;
+if (isset($_POST['encrypt']))
+{ $decrypted = $_POST['encrypt']; }
+if (isset($_POST['decrypt']))
+{ $encrypted = $_POST['decrypt']; }
+if (isset($_POST['password']))
+{ $password = $_POST['password']; }
+                    // echo "key: ".$password."</br>";
+                    // echo "encrypted: ".$encrypted."<br/>";
+                    // echo "decrypted: ".$decrypted."<br/>";
+if ($encrypted == "Text to decrypt:")
+{ $encrypted = ""; }
+if ($decrypted == "Text to encrypt:")
+{ $decrypted = ""; }
+if (strlen($decrypted)>0 && strlen($encrypted)>0) // don't know if I need to encrypt or decrypt
+{ $invalid = TRUE; }
+if (strlen($decrypted)<1 && strlen($encrypted)<1) // nothing was entered
+{ $invalid = TRUE; }
+if (!$invalid)
+{
+    if (strlen($decrypted) > strlen($encrypted))
+    { $operation = "E"; }
+    else
+    { $operation = "D"; }
+}
+                if ($invalid)
+                { 
+                    echo "Invalid.  Text box likely empty?<br/>";
+                    // echo "key: ".$password."</br>";
+                    // echo "encrypted: ".$encrypted."<br/>";
+                    // echo "decrypted: ".$decrypted."<br/>";
+                    $encrypted = "Text to decrypt:";
+                    $decrypted = "Text to encrypt:";
+              }
+                else
+                {
+                // echo "key: ".$password."<br/>";
+                // echo "md5 of key: ".md5($password)."<br/>";
+                if ($operation == "D")
+                { $decrypted = decrypt($encrypted, $password); }
+                else
+                { $encrypted = encrypt($decrypted, $password); }
+                // echo "encrypted: ".$encrypted."<br/>";
+                // echo "decrypted: ".$decrypted."<br/>";
+                if (strlen($password)<3)
+                { echo "<strong>Warning: Password is too short.  It is ".strlen($password)." characters long.</strong><br/>"; }
+                }
                 ?>
                 </p>
-		<form name="mainForm" action="obfuscate.php" method="post">
-			<textarea id="maintext"></textarea>
-			Password: <input type="password" id="password">
-			<input type="submit" value="Submit">
+		<form name="encrypt" action="" method="post">
+			<textarea id="encrypt" name="encrypt"><?php echo $decrypted; ?></textarea>
+			Password: <input type="password" id="password" name="password" value="<?php echo $password; ?>">
+			<input type="submit" value="Encrypt">
 		</form>
-	</div>
+		<form name="decrypt" action="" method="post">
+			<textarea id="decrypt" name="decrypt"><?php echo $encrypted; ?></textarea>
+			Password: <input type="password" id="password" name="password" value="<?php echo $password; ?>">
+			<input type="submit" value="Decrypt">
+		</form>
+        </div>
 </body>
 
 </html>
