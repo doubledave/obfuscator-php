@@ -25,9 +25,9 @@ if (isset($_POST['password']))
                     // echo "key: ".$password."</br>";
                     // echo "encrypted: ".$encrypted."<br/>";
                     // echo "decrypted: ".$decrypted."<br/>";
-if ($encrypted == "Text to decrypt:")
+if (is_null($encrypted))
 { $encrypted = ""; }
-if ($decrypted == "Text to encrypt:")
+if (is_null($decrypted))
 { $decrypted = ""; }
 if (strlen($decrypted)>0 && strlen($encrypted)>0) // don't know if I need to encrypt or decrypt
 { $invalid = TRUE; }
@@ -46,8 +46,8 @@ if (!$invalid)
                     // echo "key: ".$password."</br>";
                     // echo "encrypted: ".$encrypted."<br/>";
                     // echo "decrypted: ".$decrypted."<br/>";
-                    $encrypted = "Text to decrypt:";
-                    $decrypted = "Text to encrypt:";
+                    //$encrypted = "Text to decrypt:";
+                    //$decrypted = "Text to encrypt:";
               }
                 else
                 {
@@ -65,12 +65,12 @@ if (!$invalid)
                 ?>
                 </p>
 		<form name="encrypt" action="" method="post">
-			<textarea id="encrypt" name="encrypt"><?php echo $decrypted; ?></textarea>
+			<textarea id="encrypt" name="encrypt" placeholder="Text to encrypt"><?php echo $decrypted; ?></textarea>
 			Password: <input type="password" id="password" name="password" value="<?php echo $password; ?>">
 			<input type="submit" value="Encrypt">
 		</form>
 		<form name="decrypt" action="" method="post">
-			<textarea id="decrypt" name="decrypt"><?php echo $encrypted; ?></textarea>
+			<textarea id="decrypt" name="decrypt" placeholder="Text to decrypt"><?php echo $encrypted; ?></textarea>
 			Password: <input type="password" id="password" name="password" value="<?php echo $password; ?>">
 			<input type="submit" value="Decrypt">
 		</form>
