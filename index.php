@@ -5,7 +5,7 @@
 	<title>Obfuscation Tool</title>
 </head>
 
-<body>
+<body onLoad="document.encrypt.encrypt.focus();">
 	<div align="center">
 		<h1>Welcome to the obfuscator! Please enter your text below as well as a password.</h1>
 		<br />
