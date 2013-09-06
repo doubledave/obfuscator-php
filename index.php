@@ -71,19 +71,25 @@ if (!$invalid)
                 // echo "encrypted: ".$encrypted."<br/>";
                 // echo "decrypted: ".$decrypted."<br/>";
                 if (strlen($password)<3)
-                { echo "<strong>Warning: Password is too short.  It is ".strlen($password)." characters long.</strong><br/>"; }
+                { echo "<div class="alert"><strong>Warning:</strong> Password is too short.  It is ".strlen($password)." characters long.</div><br/>"; }
                 }
                 ?>
                 </p>
-		<form name="encrypt" action="" method="post">
-			<textarea id="encrypt" name="encrypt" placeholder="Text to encrypt"><?php echo $decrypted; ?></textarea>
-			Password: <input type="password" id="password" name="password" value="<?php echo $password; ?>">
-			<input type="submit" value="Encrypt">
+		<form role="form" name="encrypt" action="" method="post">
+			<div class="form-group">
+			<textarea class="form-control" id="encrypt" name="encrypt" placeholder="Text to encrypt"><?php echo $decrypted; ?></textarea>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" value="<?php echo $password; ?>">
+			<button type="submit" class="btn btn-primary">Encrypt</button>
+			</div>
 		</form>
-		<form name="decrypt" action="" method="post">
-			<textarea id="decrypt" name="decrypt" placeholder="Text to decrypt"><?php echo $encrypted; ?></textarea>
-			Password: <input type="password" id="password" name="password" value="<?php echo $password; ?>">
-			<input type="submit" value="Decrypt">
+		<form role="form" name="decrypt" action="" method="post">
+			<div class="form-group">
+			<textarea class="form-control" id="decrypt" name="decrypt" placeholder="Text to decrypt"><?php echo $encrypted; ?></textarea>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" value="<?php echo $password; ?>">
+			<button type="submit" class="btn btn-primary">Decrypt</button>
+			</div>
 		</form>
         </div>
 </body>
