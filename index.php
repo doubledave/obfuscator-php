@@ -8,11 +8,16 @@
       		<script src="./includes/html5shiv.js"></script>
       		<script src="./includes/respond.js"></script>
     	<![endif]-->
+    	<script src="./includes/bootstrap.js"></script>
+    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 
 <body onLoad="document.encrypt.encrypt.focus();">
 	<div align="center">
-		<h1>Welcome to the obfuscator! Please enter your text below as well as a password.</h1>
+		<div class="jumbotron">
+		<h1>Welcome!</h1>
+		<p>Welcome to the obfuscator. Please enter text to encrypt or decrypt, and a password.</p>
+		</div>
 		<br />
                 <p>
                 <?php
