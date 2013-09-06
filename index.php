@@ -1,13 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<!DOCTYPE html>
+<html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
 	<title>Obfuscation Tool</title>
+	<link href="./includes/bootstrap.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+      		<script src="./includes/html5shiv.js"></script>
+      		<script src="./includes/respond.js"></script>
+    	<![endif]-->
+    	<script src="./includes/bootstrap.js"></script>
+    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 
 <body onLoad="document.encrypt.encrypt.focus();">
 	<div align="center">
-		<h1>Welcome to the obfuscator! Please enter your text below as well as a password.</h1>
+		<div class="jumbotron">
+		<h1>Welcome!</h1>
+		<p>Welcome to the obfuscator. Please enter text to encrypt or decrypt, and a password.</p>
+		</div>
 		<br />
                 <p>
                 <?php
@@ -60,19 +71,25 @@ if (!$invalid)
                 // echo "encrypted: ".$encrypted."<br/>";
                 // echo "decrypted: ".$decrypted."<br/>";
                 if (strlen($password)<3)
-                { echo "<strong>Warning: Password is too short.  It is ".strlen($password)." characters long.</strong><br/>"; }
+                { echo "<div class=\"alert\"><strong>Warning:</strong> Password is too short.  It is ".strlen($password)." characters long.</div><br/>"; }
                 }
                 ?>
                 </p>
-		<form name="encrypt" action="" method="post">
-			<textarea id="encrypt" name="encrypt" placeholder="Text to encrypt"><?php echo $decrypted; ?></textarea>
-			Password: <input type="password" id="password" name="password" value="<?php echo $password; ?>">
-			<input type="submit" value="Encrypt">
+		<form role="form" name="encrypt" action="" method="post">
+			<div class="form-group">
+			<textarea class="form-control" id="encrypt" name="encrypt" placeholder="Text to encrypt"><?php echo $decrypted; ?></textarea>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" value="<?php echo $password; ?>">
+			<button type="submit" class="btn btn-primary">Encrypt</button>
+			</div>
 		</form>
-		<form name="decrypt" action="" method="post">
-			<textarea id="decrypt" name="decrypt" placeholder="Text to decrypt"><?php echo $encrypted; ?></textarea>
-			Password: <input type="password" id="password" name="password" value="<?php echo $password; ?>">
-			<input type="submit" value="Decrypt">
+		<form role="form" name="decrypt" action="" method="post">
+			<div class="form-group">
+			<textarea class="form-control" id="decrypt" name="decrypt" placeholder="Text to decrypt"><?php echo $encrypted; ?></textarea>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" value="<?php echo $password; ?>">
+			<button type="submit" class="btn btn-primary">Decrypt</button>
+			</div>
 		</form>
         </div>
 </body>
