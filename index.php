@@ -79,7 +79,9 @@ if (!$invalid)
 			<div class="form-group">
 			<textarea class="form-control" id="encrypt" name="encrypt" placeholder="Text to encrypt"><?php echo $decrypted; ?></textarea>
 			<label for="password">Password:</label>
-			<input type="password" id="password" name="password" value="<?php echo $password; ?>">
+			<div class="col-lg-10">
+			<input type="password" class="form-control" id="password" name="password" value="<?php echo $password; ?>">
+			</div>
 			<button type="submit" class="btn btn-primary">Encrypt</button>
 			</div>
 		</form>
@@ -87,7 +89,9 @@ if (!$invalid)
 			<div class="form-group">
 			<textarea class="form-control" id="decrypt" name="decrypt" placeholder="Text to decrypt"><?php echo $encrypted; ?></textarea>
 			<label for="password">Password:</label>
-			<input type="password" id="password" name="password" value="<?php echo $password; ?>">
+			<div class="col-lg-10">
+			<input type="password" class="form-control" id="password" name="password" value="<?php echo $password; ?>">
+			</div>
 			<button type="submit" class="btn btn-primary">Decrypt</button>
 			</div>
 		</form>
