@@ -65,9 +65,9 @@ if (!$invalid)
                 // echo "key: ".$password."<br/>";
                 // echo "md5 of key: ".md5($password)."<br/>";
                 if ($operation == "D")
-                { $decrypted = decrypt($encrypted, $password); }
+                { $decrypted = decrypt(trim($encrypted), trim($password)); }
                 else
-                { $encrypted = encrypt($decrypted, $password); }
+                { $encrypted = encrypt(trim($decrypted), trim($password)); }
                 // echo "encrypted: ".$encrypted."<br/>";
                 // echo "decrypted: ".$decrypted."<br/>";
                 if (strlen($password)<3)
