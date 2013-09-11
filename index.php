@@ -96,6 +96,9 @@ if (!$invalid)
 			</div>
 		</form>
         </div>
+    <div>
+        <p><a href="https://github.com/doubledave/obfuscator-php">Source<a></p>
+    </div>
 </body>
 
 </html>
