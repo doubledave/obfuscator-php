@@ -71,7 +71,7 @@ if (!$invalid)
                 // echo "encrypted: ".$encrypted."<br/>";
                 // echo "decrypted: ".$decrypted."<br/>";
                 if (strlen($password)<3)
-                { echo "<div class=\"alert\"><strong>Warning:</strong> Password is too short.  It is ".strlen($password)." characters long.</div><br/>"; }
+                { echo "<div class=\"alert alert-danger\"><strong>Warning:</strong> Password is too short.  It is ".strlen($password)." characters long.</div><br/>"; }
                 }
                 ?>
                 </p>
