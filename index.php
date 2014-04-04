@@ -98,6 +98,7 @@ if (!$invalid)
         </div>
     <div>
         <p><a href="https://github.com/doubledave/obfuscator-php">Source<a></p>
+        <p>Licensed under the <a href="https://github.com/doubledave/obfuscator-php/blob/master/LICENSE">MIT License</a></p>
     </div>
 </body>
 
