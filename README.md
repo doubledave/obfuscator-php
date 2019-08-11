@@ -14,7 +14,7 @@ simply still not be able to read the text.
 
 It only modifies letters and numbers, preserving case and symbols.
 
-This code's algorythms are not yet compatible with the c# version:
+This code's algorithms are not yet compatible with the c# version:
 https://github.com/doubledave/Obfuscator
 It is subject to change, so expect any currently encoded text to not be able to
 be decoded in the future in case of algorithm changes in the future.
